@@ -1,0 +1,46 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e293b;
+  color: #fff;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.pokeball-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #ef4444 50%, #ffffff 50%);
+  border: 2px solid #0f172a;
+  display: inline-block;
+}
+.links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+.links a:hover {
+  color: #fff;
+}
+.links a.active {
+  background-color: #0f172a;
+  color: #38bdf8;
+}
+.links a.btn-add {
+  background-color: #2563eb;
+  color: #fff;
+}
