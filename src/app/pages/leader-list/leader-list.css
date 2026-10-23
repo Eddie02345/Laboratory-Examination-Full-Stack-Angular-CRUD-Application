@@ -1,35 +1,93 @@
-.list-page { display: flex; flex-direction: column; gap: 1.5rem; }
+:host {
+  display: block;
+}
+
+.list-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .header-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--ctp-surface0);
+  padding-bottom: 1.25rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
-.header-row h2 { margin: 0; color: #0f172a; }
-.header-row p { margin: 0; color: #64748b; font-size: 0.95rem; }
+
+.header-row h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ctp-text);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.header-row p {
+  font-size: 0.85rem;
+  color: var(--ctp-subtext0);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  margin: 0;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 6px;
+  background: var(--ctp-mantle);
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--ctp-surface0);
+}
+
 .filter-controls button {
-  padding: 0.4rem 0.9rem;
-  border: 1px solid #cbd5e1;
-  background: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--ctp-subtext0);
+  border: 1px solid transparent;
+  padding: 6px 14px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: 600;
+  transition: all 0.15s ease;
 }
+
+.filter-controls button:hover {
+  color: var(--ctp-text);
+  background: var(--ctp-surface0);
+}
+
 .filter-controls button.active {
-  background: #0f172a;
-  color: #fff;
+  background: var(--ctp-surface0);
+  color: var(--ctp-blue);
+  border-color: var(--ctp-surface1);
 }
+
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
 }
+
+
 .empty-state {
   grid-column: 1 / -1;
-  background: #fff;
   text-align: center;
-  padding: 3rem;
+  padding: 3.5rem 1.5rem;
+  background: var(--ctp-base);
+  border: 1px dashed var(--ctp-surface1);
   border-radius: 8px;
-  color: #64748b;
+}
+
+.empty-state p {
+  color: var(--ctp-overlay0);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  margin: 0;
 }
