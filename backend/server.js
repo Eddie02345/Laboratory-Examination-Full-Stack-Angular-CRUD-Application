@@ -1,10 +1,15 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
-require('dotenv').config({ path: path.join(__dirname, '../.env') }); 
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
+const PORT = process.env.PORT || 3000;
+
+// Gym Leader Model Schema
+const GymLeader = require('./models/GymLeader');
 
 const app = express();
 app.use(express.json());
@@ -14,55 +19,6 @@ app.use(cors());
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
-
-// Gym Leader Model Schema
-const GymLeader = mongoose.model('GymLeader', new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Gym Leader name is required'],
-    minlength: [2, 'Name must have at least 2 characters'],
-    trim: true
-  },
-  region: {
-    type: String,
-    required: [true, 'Region is required'],
-    enum: {
-      values: ['Kanto', 'Johto', 'Hoenn'],
-      message: '{VALUE} is not a valid region'
-    }
-  },
-  town: {
-    type: String,
-    required: [true, 'Town is required'],
-    trim: true
-  },
-  badge: {
-    type: String,
-    required: [true, 'Badge name is required'],
-    trim: true
-  },
-  specialty: {
-    type: String,
-    required: [true, 'Specialty is required'],
-    trim: true
-  },
-  aceLevel: {
-    type: Number,
-    required: [true, 'Ace Pokémon level is required'],
-    min: [1, 'Ace level must be at least 1'],
-    max: [100, 'Ace level cannot exceed 100'],
-    validate: {
-      validator: Number.isInteger,
-      message: 'Ace level must be a whole integer'
-    }
-  },
-  motto: {
-    type: String,
-    maxlength: [150, 'Motto cannot exceed 150 characters'],
-    default: '',
-    trim: true
-  }
-}, { timestamps: true }));
 
 // [READ ALL] GET: Fetch all Gym Leaders
 app.get('/api/leaders', async (req, res) => {
@@ -143,6 +99,6 @@ app.delete('/api/leaders/:id', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

@@ -61,3 +61,18 @@
 }
 .btn-edit { background: #e2e8f0; color: #1e293b; }
 .btn-delete { background: #fee2e2; color: #b91c1c; }
+
+.kanto .region-tag {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.johto .region-tag {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.hoenn .region-tag {
+  background-color: #d1fae5;
+  color: #047857;
+}
