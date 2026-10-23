@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div class="home-hero">
+  <h1>Pokémon League Headquarters</h1>
+  <p>Official registry system for the Kanto, Johto, and Hoenn regions.</p>
+</div>
+
+<div class="roster-grid">
+  <div class="region-box kanto">
+    <h3>Kanto Region</h3>
+    <span class="count-value">{{ kantoCount() }}</span>
+    <p>Active Leaders</p>
+  </div>
+  <div class="region-box johto">
+    <h3>Johto Region</h3>
+    <span class="count-value">{{ johtoCount() }}</span>
+    <p>Active Leaders</p>
+  </div>
+  <div class="region-box hoenn">
+    <h3>Hoenn Region</h3>
+    <span class="count-value">{{ hoennCount() }}</span>
+    <p>Active Leaders</p>
+  </div>
+</div>
+
+<div class="hero-actions">
+  <a routerLink="/leaders" class="action-btn">View Leader Directory</a>
+  <a routerLink="/leaders/new" class="action-btn primary">+ Register New Leader</a>
+</div>

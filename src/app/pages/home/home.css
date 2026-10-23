@@ -1,0 +1,31 @@
+.home-hero { text-align: center; margin-bottom: 2.5rem; }
+.home-hero h1 { font-size: 2.2rem; color: #0f172a; }
+.home-hero p { color: #64748b; margin-top: 0.5rem; }
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.region-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border-top: 5px solid #94a3b8;
+}
+.region-box.kanto { border-top-color: #ef4444; }
+.region-box.johto { border-top-color: #3b82f6; }
+.region-box.hoenn { border-top-color: #10b981; }
+.count-value { font-size: 2.8rem; font-weight: 800; color: #0f172a; display: block; }
+.hero-actions { display: flex; justify-content: center; gap: 1rem; }
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #1e293b;
+}
+.action-btn.primary { background: #2563eb; color: #fff; }
