@@ -1,1 +1,77 @@
-<p>leader-form works!</p>
+<div class="form-wrapper">
+  <h2>{{ isEditMode ? 'Edit Gym Leader' : 'Register a Gym Leader' }}</h2>
+
+  <form [formGroup]="leaderForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <div class="input-group">
+      <label for="name">Leader Name *</label>
+      <input id="name" type="text" formControlName="name" placeholder="Brock" />
+      @if (isFieldInvalid('name')) {
+        <span class="error">Name is required (at least 2 characters).</span>
+      }
+    </div>
+
+    <!-- Region -->
+    <div class="input-group">
+      <label for="region">Region *</label>
+      <select id="region" formControlName="region">
+        <option value="Kanto">Kanto</option>
+        <option value="Johto">Johto</option>
+        <option value="Hoenn">Hoenn</option>
+      </select>
+    </div>
+
+    <!-- Town -->
+    <div class="input-group">
+      <label for="town">Gym Town *</label>
+      <input id="town" type="text" formControlName="town" placeholder="Pewter City" />
+      @if (isFieldInvalid('town')) {
+        <span class="error">Town location is required.</span>
+      }
+    </div>
+
+    <!-- Badge -->
+    <div class="input-group">
+      <label for="badge">Badge Name *</label>
+      <input id="badge" type="text" formControlName="badge" placeholder="Boulder Badge" />
+      @if (isFieldInvalid('badge')) {
+        <span class="error">Badge name is required.</span>
+      }
+    </div>
+
+    <!-- Specialty -->
+    <div class="input-group">
+      <label for="specialty">Type Specialty *</label>
+      <input id="specialty" type="text" formControlName="specialty" placeholder="Rock" />
+      @if (isFieldInvalid('specialty')) {
+        <span class="error">Pokémon specialty is required.</span>
+      }
+    </div>
+
+    <!-- Ace Level -->
+    <div class="input-group">
+      <label for="aceLevel">Ace Level (1–100) *</label>
+      <input id="aceLevel" type="number" formControlName="aceLevel" min="1" max="100" />
+      @if (isFieldInvalid('aceLevel')) {
+        <span class="error">Ace level must be between 1 and 100.</span>
+      }
+    </div>
+
+    <!-- Motto -->
+    <div class="input-group">
+      <label for="motto">Motto (max 150 characters)</label>
+      <textarea id="motto" rows="3" formControlName="motto" placeholder="My rock-hard willpower..."></textarea>
+      @if (isFieldInvalid('motto')) {
+        <span class="error">Motto cannot exceed 150 characters.</span>
+      }
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-buttons">
+      <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      <button type="submit" class="btn-save" [disabled]="leaderForm.invalid">
+        {{ isEditMode ? 'Save Changes' : 'Add Leader' }}
+      </button>
+    </div>
+  </form>
+</div>
